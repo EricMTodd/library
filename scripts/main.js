@@ -35,8 +35,8 @@ function toggleForm() {
     </form>
     `
   } else {
-    addNewBookButton.innerHTML = "Add New Book";
     formStatus = false;
+    addNewBookButton.innerHTML = "Add New Book";
     dropdown.innerHTML = "";
   }
 }
@@ -53,9 +53,8 @@ function addBookToLibrary() {
 }
 
 function displayCatalogue() {
-  let catalogue = document.getElementById("catalogue");
-  let catalogueList = document.createElement("ul");
-  catalogue.appendChild(catalogueList);
+  // let catalogue = document.getElementById("catalogue");
+  let catalogueList = document.getElementById("catalogueList")
   for (let i = 0; i < myLibrary.length; i++) {
     let currentIndex = myLibrary[i]
     let newLineItem = document.createElement("li");
