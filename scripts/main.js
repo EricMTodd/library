@@ -1,20 +1,17 @@
 let myLibrary = [
   {
-    id: 1,
     artwork: "https://images-na.ssl-images-amazon.com/images/I/81qjQRVKc5L.jpg",
     title: "The Last Days of Socrates",
     author: "Plato",
     genre: "Philosophy"
   },
   {
-    id: 2,
     artwork: "https://m.media-amazon.com/images/I/51N+DNCnhaL.jpg",
     title: "The Republic",
     author: "Plato",
     genre: "Philosophy"
   },
   {
-    id: 3,
     artwork: "https://images-na.ssl-images-amazon.com/images/I/51cQEdN9KuL._SX331_BO1,204,203,200_.jpg",
     title: "Meditations",
     author: "Marcus Aurelius",
@@ -22,8 +19,33 @@ let myLibrary = [
   }
 ];
 
-function Book() {
-  // the constructor...
+let formStatus = false;
+function toggleForm() {
+  let dropdown = document.getElementById("dropdown");
+  let addNewBookButton = document.getElementById("add-new-book-button");
+  if (formStatus == false) {
+    formStatus = true;
+    addNewBookButton.innerHTML = "Hide New Book Form";
+    dropdown.innerHTML = `
+    <form action="#">
+      <input placeholder="Artwork URL" type="text" id="artwork" name="artwork"><br><br>
+      <input placeholder="Title" type="text" id="title" name="title"><br><br>
+      <input placeholder="Author" type="text" id="author" name="author"><br><br>
+      <input placeholder="Genre" type="text" id="genre" name="genre"><br><br>
+    </form>
+    `
+  } else {
+    addNewBookButton.innerHTML = "Add New Book";
+    formStatus = false;
+    dropdown.innerHTML = "";
+  }
+}
+
+function Book(artwork, title, author, genre) {
+  this.artwork = artwork;
+  this.title = title;
+  this.author = author;
+  this.genre = genre;
 }
 
 function addBookToLibrary() {
@@ -38,7 +60,6 @@ function displayCatalogue() {
     let currentIndex = myLibrary[i]
     let newLineItem = document.createElement("li");
 
-    // HTML
     newLineItem.innerHTML = `
     <div class="card">
       <img src=${currentIndex.artwork} alt="Artwork for ${currentIndex.title}">
@@ -53,7 +74,6 @@ function displayCatalogue() {
       </div>
     </div>
     `;
-    // End HTML
 
     catalogueList.appendChild(newLineItem);
   }
