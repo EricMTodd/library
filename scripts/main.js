@@ -52,8 +52,8 @@ function addBookToLibrary() {
   // do stuff here
 }
 
+
 function displayCatalogue() {
-  // let catalogue = document.getElementById("catalogue");
   let catalogueList = document.getElementById("catalogueList")
   for (let i = 0; i < myLibrary.length; i++) {
     let currentIndex = myLibrary[i]
