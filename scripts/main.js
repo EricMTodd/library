@@ -27,11 +27,12 @@ function toggleForm() {
     formStatus = true;
     addNewBookButton.innerHTML = "Hide New Book Form";
     dropdown.innerHTML = `
-    <form action="#">
+    <form>
       <input placeholder="Artwork URL" type="text" id="artwork" name="artwork"><br><br>
       <input placeholder="Title" type="text" id="title" name="title"><br><br>
       <input placeholder="Author" type="text" id="author" name="author"><br><br>
       <input placeholder="Genre" type="text" id="genre" name="genre"><br><br>
+      <button type="submit">Add This Book to the Library</button>
     </form>
     `
   } else {
@@ -48,8 +49,9 @@ function Book(artwork, title, author, genre) {
   this.genre = genre;
 }
 
-function addBookToLibrary() {
-  // do stuff here
+function addBookToLibrary(artwork, title, author, genre) {
+  let newBook = new Book(artwork, title, author, genre);
+  myLibrary.push(newBook);
 }
 
 
