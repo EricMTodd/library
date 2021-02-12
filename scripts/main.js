@@ -27,13 +27,13 @@ function toggleForm() {
     formStatus = true;
     addNewBookButton.innerHTML = "Hide New Book Form";
     dropdown.innerHTML = `
-    <form>
+    <div>
       <input placeholder="Artwork URL" type="text" id="artwork" name="artwork"><br><br>
       <input placeholder="Title" type="text" id="title" name="title"><br><br>
       <input placeholder="Author" type="text" id="author" name="author"><br><br>
       <input placeholder="Genre" type="text" id="genre" name="genre"><br><br>
-      <button type="submit">Add This Book to the Library</button>
-    </form>
+      <button onclick="addBookToLibrary()">Add This Book to the Library</button>
+    </div>
     `
   } else {
     formStatus = false;
@@ -42,6 +42,7 @@ function toggleForm() {
   }
 }
 
+// Constructor
 function Book(artwork, title, author, genre) {
   this.artwork = artwork;
   this.title = title;
@@ -49,9 +50,46 @@ function Book(artwork, title, author, genre) {
   this.genre = genre;
 }
 
-function addBookToLibrary(artwork, title, author, genre) {
-  let newBook = new Book(artwork, title, author, genre);
-  myLibrary.push(newBook);
+function addBookToLibrary() {
+  if (
+  document.getElementById("artwork").value == "" || 
+  document.getElementById("title").value == "" || 
+  document.getElementById("author").value == "" || 
+  document.getElementById("genre").value == "" 
+  ) {
+    alert("Please fill out the form competely.")
+  } else {
+    let newBook = new Book(
+      document.getElementById("artwork").value,
+      document.getElementById("title").value,
+      document.getElementById("author").value,
+      document.getElementById("genre").value,
+    );
+    myLibrary.push(newBook);
+    let catalogueList = document.getElementById("catalogueList")
+    let newLineItem = document.createElement("li");
+  
+    newLineItem.innerHTML = `
+    <div class="card">
+      <img src=${newBook.artwork} alt="Artwork for ${newBook.title}">
+      <div class="container">
+        <p>
+          Title: ${newBook.title}
+          <br>
+          Author: ${newBook.author}
+          <br>
+          Genre: ${newBook.genre}
+        </p>
+      </div>
+    </div>
+    `;
+    catalogueList.appendChild(newLineItem);
+  
+    document.getElementById("artwork").value = ""
+    document.getElementById("title").value = ""
+    document.getElementById("author").value = ""
+    document.getElementById("genre").value = ""
+  }
 }
 
 
