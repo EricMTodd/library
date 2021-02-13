@@ -54,6 +54,12 @@ img {
   max-height: 300px;
 }
 
+input:focus {
+  outline: none;
+  background-color: rgb(180, 180, 180);
+  transition: 0.3s;
+}
+
 /* Class styles */
 .button-container {
   display: flex;
@@ -75,6 +81,11 @@ img {
 }
 
 /* ID styles */
+#catalogueList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #dropdown {
   display: flex;
   justify-content: center;
