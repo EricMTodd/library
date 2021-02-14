@@ -1,4 +1,4 @@
-let myLibrary = [
+let library = [
   {
     id: 1,
     artwork: "https://images-na.ssl-images-amazon.com/images/I/81qjQRVKc5L.jpg",
@@ -52,7 +52,7 @@ function addBookToLibrary() {
       document.getElementById("author").value,
       document.getElementById("genre").value,
     );
-    myLibrary.push(newBook);
+    library.push(newBook);
     let catalogueList = document.getElementById("catalogueList")
     let newLineItem = document.createElement("li");
   
@@ -82,9 +82,9 @@ function addBookToLibrary() {
 
 
 function removeBookFromLibrary(target) {
-  for (let i = 0; i < myLibrary.length; i++) {
-    if (myLibrary[i].id === target) {
-      myLibrary.splice(i, 1)
+  for (let i = 0; i < library.length; i++) {
+    if (library[i].id === target) {
+      library.splice(i, 1)
     }
   }
   document.getElementById(target).remove();
@@ -117,8 +117,8 @@ function toggleForm() {
 
 function displayCatalogue() {
   let catalogueList = document.getElementById("catalogueList")
-  for (let i = 0; i < myLibrary.length; i++) {
-    let currentIndex = myLibrary[i]
+  for (let i = 0; i < library.length; i++) {
+    let currentIndex = library[i]
     let newLineItem = document.createElement("li");
 
     newLineItem.innerHTML = `
