@@ -4,10 +4,11 @@
 }
 
 body {
+  background-color: white;
   background-image: linear-gradient(#ffffff00, white),
     url(../images/book-shelf.jpeg);
-  background-size: 1920px 100%;
-  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
+  background-repeat: repeat-x;
 }
 
 button {
