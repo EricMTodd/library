@@ -6,7 +6,7 @@
 body {
   background-image: linear-gradient(#ffffff00, white),
     url(../images/book-shelf.jpeg);
-  background-size: 100% 100%;
+  background-size: 1920px 100%;
   background-repeat: no-repeat;
 }
 
