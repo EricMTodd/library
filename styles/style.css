@@ -26,6 +26,15 @@ button:active {
   background-color: rgb(180, 180, 180);
 }
 
+header {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+img {
+  max-height: 300px;
+}
+
 input {
   text-align: center;
   width: 300px;
@@ -34,15 +43,10 @@ input {
   border-color: gray;
 }
 
-header {
-  text-align: center;
-  text-transform: uppercase;
-}
-
-ul {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+input:focus {
+  outline: none;
+  background-color: rgb(180, 180, 180);
+  transition: 0.3s;
 }
 
 li {
@@ -50,14 +54,10 @@ li {
   float: left;
 }
 
-img {
-  max-height: 300px;
-}
-
-input:focus {
-  outline: none;
-  background-color: rgb(180, 180, 180);
-  transition: 0.3s;
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Class styles */
@@ -90,4 +90,17 @@ input:focus {
   display: flex;
   justify-content: center;
   padding-top: 20px;
+}
+
+#remove-book-from-library {
+  color: rgb(180, 180, 180);
+}
+
+#remove-book-from-library:hover {
+  color: gray;
+  transition: 0.3s;
+}
+
+#remove-book-from-library:active {
+  color: black;
 }
