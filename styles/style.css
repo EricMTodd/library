@@ -3,6 +3,13 @@
   font-family: arial, sans-serif;
 }
 
+body {
+  background-image: linear-gradient(#ffffff00, white),
+    url(../images/book-shelf.jpeg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 button {
   margin: 10px 5px;
   color: gray;
@@ -14,16 +21,21 @@ button {
   transition-duration: 0.3s;
   cursor: pointer;
   outline: none;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
 }
 
 button:hover {
-  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 1);
   color: black;
 }
 
 button:active {
   background-color: rgb(180, 180, 180);
+}
+
+h1 {
+  color: white;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 1);
 }
 
 header {
@@ -33,6 +45,7 @@ header {
 
 img {
   max-height: 300px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
 }
 
 input {
@@ -69,7 +82,9 @@ ul {
 .card {
   display: inline-block;
   text-align: center;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
   transition: 0.3s;
   min-width: 300px;
   padding: 10px 20px;
@@ -77,7 +92,7 @@ ul {
 }
 
 .card:hover {
-  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 1);
 }
 
 /* ID styles */
@@ -94,13 +109,10 @@ ul {
 
 #remove-book-from-library {
   color: rgb(180, 180, 180);
-}
-
-#remove-book-from-library:hover {
-  color: gray;
   transition: 0.3s;
 }
 
-#remove-book-from-library:active {
+#remove-book-from-library:hover {
   color: black;
+  transition: 0.3s;
 }

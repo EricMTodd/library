@@ -68,7 +68,7 @@ function addBookToLibrary() {
           Genre: ${newBook.genre}
         </p>
       </div>
-      <p id="remove-book-from-library" onclick="removeBookFromLibrary(${newBook.id})">Remove Book</p>
+      <a id="remove-book-from-library" onclick="removeBookFromLibrary(${newBook.id})">Remove Book</a>
     </div>
     `;
     catalogueList.appendChild(newLineItem);
@@ -133,7 +133,7 @@ function displayCatalogue() {
           Genre: ${currentIndex.genre}
         </p>
       </div>
-      <p id="remove-book-from-library" onclick="removeBookFromLibrary(${currentIndex.id})">Remove Book</p>
+      <a id="remove-book-from-library" onclick="removeBookFromLibrary(${currentIndex.id})">Remove Book</a>
     </div>
     `;
 
