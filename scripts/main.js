@@ -165,7 +165,7 @@ function displayCatalogue() {
   stringifyStorageData();
 }
 
-function resetLibraryCatalogue() {
+function initialize() {
   parseStorageData();
   library = [
     {
@@ -190,8 +190,8 @@ function resetLibraryCatalogue() {
       genre: "Philosophy"
     }
   ];
-  stringifyStorageData();
   location.reload();
+  stringifyStorageData();
 }
 
 displayCatalogue();
