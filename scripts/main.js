@@ -119,10 +119,10 @@ function toggleForm() {
     <div>
       <fieldset>
         <legend>Enter Book Details</legend>
-        <input placeholder="Artwork URL" type="text" id="artwork" name="artwork"><br><br>
-        <input placeholder="Title" type="text" id="title" name="title"><br><br>
-        <input placeholder="Author" type="text" id="author" name="author"><br><br>
-        <input placeholder="Genre" type="text" id="genre" name="genre"><br><br>
+        <input autocomplete="off" placeholder="Artwork URL" type="text" id="artwork" name="artwork"><br><br>
+        <input autocomplete="off" placeholder="Title" type="text" id="title" name="title"><br><br>
+        <input autocomplete="off" placeholder="Author" type="text" id="author" name="author"><br><br>
+        <input autocomplete="off" placeholder="Genre" type="text" id="genre" name="genre"><br><br>
         <button onclick="addBookToLibrary()">Add Book to Library</button>
       </fieldset>
 
