@@ -1,6 +1,4 @@
 // Global variables
-let initialVisit = true;
-let library = [];
 
 
 // Constructors
@@ -12,21 +10,16 @@ function book(id, artwork, title, author, genre) {
   this.genre = genre;
 }
 
-function stringifyLocalStorage() {
-  // x = JSON.stringify(");
-}
-
-function parseLocalStorage() {
-  //y = JSON.parse();
-}
 
 // Functions
 function init() {
   // Check to see if localStorage has anything in it.
   let catalogue = document.querySelector("#catalogue")
-  if (initialVisit == true) {
-    // Load up dummy data of a few books
-    library = [
+  if (!localStorage.initialVisit) {
+    // Set localStorage values, creating a library and recording the visit.
+    localStorage.setItem("initialVisit", "true");
+
+    let library = [
       {
         id: 1,
         artwork: "https://images-na.ssl-images-amazon.com/images/I/81qjQRVKc5L.jpg",
@@ -56,20 +49,40 @@ function init() {
       newListItem.innerHTML = `
       <div class="card">
         <div class="card-art">
-          <img src="${library[i].artwork}"<br><br><br>
-        </div>
+          <img src="${library[i].artwork}"
+        </div><br><br>
         <div class="card-details">
           Title: ${library[i].title}<br>
           Author: ${library[i].author}<br>
           Genre: ${library[i].genre}<br>
-        </div>
-        <br><a class="remove-book">Remove Book</a>
+        </div><br>
+        <a class="remove-book">Remove Book</a>
       </div>
       `
       catalogue.appendChild(newListItem);
     }
+    localStorage.setItem("library", JSON.stringify(library));
+    window.location.reload();
   } else {
     // Load up localStorage
+    let library = JSON.parse(localStorage.library);
+    for (let i = 0; i < library.length; i++) {
+      let newListItem = document.createElement("li");
+      newListItem.innerHTML = `
+      <div id="${library[i].id}" class="card">
+        <div class="card-art">
+          <img src="${library[i].artwork}"
+        </div><br><br>
+        <div class="card-details">
+          Title: ${library[i].title}<br>
+          Author: ${library[i].author}<br>
+          Genre: ${library[i].genre}<br>
+        </div><br>
+        <a class="remove-book" onclick="removeBook(${library[i].id})">Remove Book</a>
+      </div>
+      `
+      catalogue.appendChild(newListItem);
+    }
 
   }
 }
@@ -82,8 +95,15 @@ function addNewBook() {
   // Add a book!
 }
 
-function removeBook() {
-  // Remove the selcted book
+function removeBook(target) {
+  let library = JSON.parse(localStorage.library);
+  for (let i = 0; i < library.length; i++) {
+    if (library[i].id == target) {
+      library.splice(i, 1);
+      document.getElementById(`${target}`).remove();
+    }
+  }
+  localStorage.setItem("library", JSON.stringify(library));
 }
 
 init();
