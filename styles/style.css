@@ -102,6 +102,16 @@ ul {
   box-shadow: 0 15px 20px 0 rgba(0, 0, 0, 1);
 }
 
+.remove-book {
+  color: rgb(180, 180, 180);
+  transition: 0.3s;
+}
+
+.remove-book:hover {
+  color: black;
+  transition: 0.3s;
+}
+
 /* ID styles */
 #catalogue {
   display: flex;
@@ -112,14 +122,4 @@ ul {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-}
-
-#remove-book-from-library {
-  color: rgb(180, 180, 180);
-  transition: 0.3s;
-}
-
-#remove-book-from-library:hover {
-  color: black;
-  transition: 0.3s;
 }

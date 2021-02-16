@@ -12,10 +12,18 @@ function book(id, artwork, title, author, genre) {
   this.genre = genre;
 }
 
+function stringifyLocalStorage() {
+  // x = JSON.stringify(");
+}
+
+function parseLocalStorage() {
+  //y = JSON.parse();
+}
 
 // Functions
 function init() {
   // Check to see if localStorage has anything in it.
+  let catalogue = document.querySelector("#catalogue")
   if (initialVisit == true) {
     // Load up dummy data of a few books
     library = [
@@ -40,10 +48,34 @@ function init() {
         author: "Marcus Aurelius",
         genre: "Philosophy"
       }
-    ]
+    ];
+
+
+    for (let i = 0; i < library.length; i++) {
+      let newListItem = document.createElement("li");
+      newListItem.innerHTML = `
+      <div class="card">
+        <div class="card-art">
+          <img src="${library[i].artwork}"<br><br><br>
+        </div>
+        <div class="card-details">
+          Title: ${library[i].title}<br>
+          Author: ${library[i].author}<br>
+          Genre: ${library[i].genre}<br>
+        </div>
+        <br><a class="remove-book">Remove Book</a>
+      </div>
+      `
+      catalogue.appendChild(newListItem);
+    }
   } else {
     // Load up localStorage
+
   }
+}
+
+function dropdownToggle() {
+  // Toggle the add new book menu.
 }
 
 function addNewBook() {
@@ -53,3 +85,5 @@ function addNewBook() {
 function removeBook() {
   // Remove the selcted book
 }
+
+init();
