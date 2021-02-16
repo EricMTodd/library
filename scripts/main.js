@@ -11,9 +11,8 @@ function Book(id, artwork, title, author, genre) {
 // Functions
 function init() {
   // Check to see if localStorage has anything in it.
-  let catalogueList = document.querySelector("#catalogueList")
+  let catalogueList = document.getElementById("catalogue-list");
   if (!localStorage.initialVisit) {
-    // Set localStorage values, creating a library and recording the visit.
     localStorage.setItem("initialVisit", "true");
 
     let library = [
@@ -112,7 +111,7 @@ function toggleForm() {
 
 let uniqueId = 3;
 function addNewBook() {
-  let catalogueList = document.getElementById("catalogueList");
+  let catalogueList = document.getElementById("catalogue-list");
   if (
   document.getElementById("artwork").value == "" || 
   document.getElementById("title").value == "" || 

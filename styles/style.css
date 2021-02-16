@@ -84,6 +84,7 @@ main {
 
 ul {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -116,11 +117,6 @@ ul {
 }
 
 /* ID styles */
-#catalogue {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 #dropdown {
   display: flex;
   justify-content: center;
