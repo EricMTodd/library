@@ -14,6 +14,7 @@ function init() {
   let catalogueList = document.getElementById("catalogue-list");
   if (!localStorage.initialVisit) {
     localStorage.setItem("initialVisit", "true");
+    localStorage.setItem("uniqueId", "3");
 
     let library = [
       {
@@ -109,18 +110,19 @@ function toggleForm() {
   }
 };
 
-let uniqueId = 3;
 function addNewBook() {
   let catalogueList = document.getElementById("catalogue-list");
   if (
-  document.getElementById("artwork").value == "" || 
-  document.getElementById("title").value == "" || 
-  document.getElementById("author").value == "" || 
-  document.getElementById("genre").value == "" 
+    document.getElementById("artwork").value == "" ||
+    document.getElementById("title").value == "" ||
+    document.getElementById("author").value == "" ||
+    document.getElementById("genre").value == ""
   ) {
     alert("Please fill out the form competely.")
   } else {
+    let uniqueId = JSON.parse(localStorage.uniqueId);
     uniqueId++;
+    localStorage.setItem("uniqueId", uniqueId);
     let newBook = new Book(
       uniqueId,
       document.getElementById("artwork").value,
@@ -132,7 +134,7 @@ function addNewBook() {
     library.push(newBook);
     localStorage.setItem("library", JSON.stringify(library));
     let newListItem = document.createElement("li");
-  
+
     newListItem.innerHTML = `
     <div id="${newBook.id}" class="card">
       <div class="card-art">
@@ -147,7 +149,7 @@ function addNewBook() {
     </div>
     `;
     catalogueList.appendChild(newListItem);
-  
+
     document.getElementById("artwork").value = "";
     document.getElementById("title").value = "";
     document.getElementById("author").value = "";
