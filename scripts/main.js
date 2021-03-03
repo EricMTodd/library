@@ -1,5 +1,5 @@
 // Factory Functions
-const createBook = (id, artwork, title, author, genre) => {
+const book = (id, artwork, title, author, genre) => {
   return { id, artwork, title, author, genre };
 }
 
@@ -82,10 +82,10 @@ function init() {
 let formStatus = false;
 function toggleForm() {
   let dropdown = document.getElementById("dropdown");
-  let addNewBookButton = document.getElementById("add-new-book-button");
+  let createBookButton = document.getElementById("add-new-book-button");
   if (formStatus == false) {
     formStatus = true;
-    addNewBookButton.innerHTML = "Hide New Book Form";
+    createBookButton.innerHTML = "Hide New Book Form";
     dropdown.innerHTML = `
     <div>
       <fieldset>
@@ -94,18 +94,18 @@ function toggleForm() {
         <input autocomplete="off" placeholder="Title" type="text" id="title" name="title"><br><br>
         <input autocomplete="off" placeholder="Author" type="text" id="author" name="author"><br><br>
         <input autocomplete="off" placeholder="Genre" type="text" id="genre" name="genre"><br><br>
-        <button onclick="addNewBook()">Submit</button>
+        <button onclick="createBook()">Submit</button>
       </fieldset>
     </div>
     `
   } else {
     formStatus = false;
-    addNewBookButton.innerHTML = "Add New Book";
+    createBookButton.innerHTML = "Add New Book";
     dropdown.innerHTML = "";
   }
 };
 
-function addNewBook() {
+function createBook() {
   let catalogueList = document.getElementById("catalogue-list");
   if (
     document.getElementById("artwork").value == "" ||
@@ -118,7 +118,7 @@ function addNewBook() {
     let uniqueId = JSON.parse(localStorage.uniqueId);
     uniqueId++;
     localStorage.setItem("uniqueId", uniqueId);
-    let newBook = createBook(
+    let newBook = book(
       uniqueId,
       document.getElementById("artwork").value,
       document.getElementById("title").value,
