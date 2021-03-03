@@ -1,12 +1,7 @@
-// Constructors
-function Book(id, artwork, title, author, genre) {
-  this.id = id;
-  this.artwork = artwork;
-  this.title = title;
-  this.author = author;
-  this.genre = genre;
-};
-
+// Factory Functions
+const createBook = (id, artwork, title, author, genre) => {
+  return { id, artwork, title, author, genre };
+}
 
 // Functions
 function init() {
@@ -123,7 +118,7 @@ function addNewBook() {
     let uniqueId = JSON.parse(localStorage.uniqueId);
     uniqueId++;
     localStorage.setItem("uniqueId", uniqueId);
-    let newBook = new Book(
+    let newBook = createBook(
       uniqueId,
       document.getElementById("artwork").value,
       document.getElementById("title").value,
