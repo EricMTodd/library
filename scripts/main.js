@@ -4,7 +4,7 @@ const book = (id, artwork, title, author, genre) => {
 }
 
 // Functions
-function init() {
+const init = () => {
   // Check to see if localStorage has anything in it.
   let catalogueList = document.getElementById("catalogue-list");
   if (!localStorage.initialVisit) {
@@ -80,7 +80,7 @@ function init() {
 };
 
 let formStatus = false;
-function toggleForm() {
+const toggleForm = () => {
   let dropdown = document.getElementById("dropdown");
   let createBookButton = document.getElementById("add-new-book-button");
   if (formStatus == false) {
@@ -105,7 +105,7 @@ function toggleForm() {
   }
 };
 
-function createBook() {
+const createBook = () => {
   let catalogueList = document.getElementById("catalogue-list");
   if (
     document.getElementById("artwork").value == "" ||
@@ -152,7 +152,7 @@ function createBook() {
   }
 };
 
-function removeBook(target) {
+const removeBook = (target) => {
   let library = JSON.parse(localStorage.library);
   for (let i = 0; i < library.length; i++) {
     if (library[i].id == target) {
