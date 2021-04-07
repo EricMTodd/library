@@ -1,10 +1,16 @@
 // Factory Functions
-const book = (id, artwork, title, author, genre) => {
-  return { id, artwork, title, author, genre };
+class Book {
+  constructor (id, artwork, title, author, genre) {
+    this.id = id
+    this.artwork = artwork
+    this.title = title
+    this.author = author
+    this.genre  = genre
+  }
 }
 
 // Functions
-const init = () => {
+const init = (() => {
   // Check to see if localStorage has anything in it.
   let catalogueList = document.getElementById("catalogue-list");
   if (!localStorage.initialVisit) {
@@ -77,7 +83,7 @@ const init = () => {
     }
 
   }
-};
+})();
 
 let formStatus = false;
 const toggleForm = () => {
@@ -118,7 +124,7 @@ const createBook = () => {
     let uniqueId = JSON.parse(localStorage.uniqueId);
     uniqueId++;
     localStorage.setItem("uniqueId", uniqueId);
-    let newBook = book(
+    let newBook = new Book(
       uniqueId,
       document.getElementById("artwork").value,
       document.getElementById("title").value,
@@ -162,5 +168,3 @@ const removeBook = (target) => {
     }
   }
 };
-
-init();
